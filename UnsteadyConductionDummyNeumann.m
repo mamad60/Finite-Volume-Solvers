@@ -14,7 +14,7 @@ Alpha=1e-3;
 n=15 ;          %No. of cells in x direction
 m=15*2;           %number of cell in y direction
 MaxIT=100000;   %Maximum allowed iteration
-eps=1e-1;       %Convergence criteria
+eps=1e-6;       %Convergence criteria
 t0=0;           %Initial value of T
 Dt=0.1;          %time step
 global F0;
