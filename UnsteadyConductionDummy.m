@@ -1,5 +1,5 @@
 %Solves UnSteady Conduction in a Nonorthogonal quadilateral Grid
-%Using Finite Volume Method, Easlily Customizable for Triangular Grids
+%Using Finite Volume Method, Easily Customizable for Triangular Grids
 %The Domain Could be any domain with Structed Grid
 %This version Uses Dummy Cells for Imposing Boundary Condition
 %By Mohammad Aghakhani, 2012
@@ -11,7 +11,7 @@ H=1;            %Height of domain(y dirction)
 global n m;
 global Alpha;
 Alpha=1e-3;
-n=15 ;          %No. of cells in x direction
+n=20 ;          %No. of cells in x direction
 m=15;           %number of cell in y direction
 MaxIT=100000;   %Maximum allowed iteration
 eps=1e-6;       %Convergence criteria
@@ -53,7 +53,7 @@ pause
 GridDummy(L,H);
 %Display Grid
 figure;
-ShowGrid(1);
+ShowGrid(1,1,1,0);
 xlabel('x');
 ylabel('y');
 title('Grid with Dummy cells(Grey)');
@@ -127,17 +127,12 @@ ylabel('Log10(Error)')
 title('Error History')
 
 %Exclude Ghost(Dummy) Cells from Calcualtions
-T=T(2:n+1,2:m+1)';
-XC=XC(2:n+1,2:m+1)';
-YC=YC(2:n+1,2:m+1)';
+T=T(2:n+1,2:m+1);
+XC=XC(2:n+1,2:m+1);
+YC=YC(2:n+1,2:m+1);
 
 %Plot Results
 figure
-if DisplayGrid
-    hold on;
-    ShowGrid(0);
-end
-
 [C1,h1] = contourf(XC,YC,T,20);
 %text_handle = clabel(C1,h1,'manual');
 colorbar
@@ -147,7 +142,7 @@ ylabel('y')
 axis fill
 if DisplayGrid
     hold on
-    ShowGrid(0);
+    ShowGrid(0,1,1,0);
     hold off
 end
 
@@ -158,18 +153,18 @@ axis fill
 
 figure
 hold on
-plot(T(1,:),XC(1,:),'-* r')
-plot(T(floor(n/5),:),XC(floor(n/5),:),'- g')
-plot(T(floor(n/4),:),XC(floor(n/4),:),'-S m')
-plot(T(floor(n/3),:),XC(floor(n/3),:),'- y')
-plot(T(floor(n/2),:),XC(floor(n/2),:),'- b')
-plot(T(floor(n*2/3),:),XC(floor(n*2/3),:),'-. c')
-plot(T(floor(n*3/4),:),XC(floor(n*3/4),:),'-.. g')
-plot(T(n,:),XC(n,:),'-.. g')
+plot(T(1,:),YC(1,:),'-* r')
+plot(T(floor(n/5),:),YC(floor(n/5),:),'- g')
+plot(T(floor(n/4),:),YC(floor(n/4),:),'-S m')
+plot(T(floor(n/3),:),YC(floor(n/3),:),'- y')
+plot(T(floor(n/2),:),YC(floor(n/2),:),'- b')
+plot(T(floor(n*2/3),:),YC(floor(n*2/3),:),'-. c')
+plot(T(floor(n*3/4),:),YC(floor(n*3/4),:),'-.. g')
+plot(T(n,:),YC(n,:),'-.. g')
 legend('x=0','x=n/5','x=n/4','x=n/3','x=n/2','x=2*n/3','x=3*n/4','x=n',1)
 title('Profiles of the Temperature across the Domain')
 xlabel('Temperature');
-ylabel('x Coordinate');
+ylabel('y Coordinate');
 axis fill
 hold off;
 fprintf(1,'Final Time is %2.6f\n',Dt*IT);

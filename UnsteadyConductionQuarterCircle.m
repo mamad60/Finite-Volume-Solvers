@@ -24,7 +24,7 @@ global F0;
 % F0=.1;              %fourier no.
 err=zeros(1,MaxIT);
 err(1)=1000;    %Error in two con. time step
-DisplayGrid=0;   %Show Grid in Contour Plot
+DisplayGrid=1;   %Show Grid in Contour Plot
 %---------------------------------------------
 
 %Definition of varibles-------------------------
@@ -56,7 +56,7 @@ pause
 GridQuarterCircle(Ro,Ri,Theta0)
 %Display Grid
 figure;
-ShowGrid(1);
+ShowGrid(1,1,1,0);
 xlabel('x');
 ylabel('y');
 title('Grid with Dummy cells(Grey)');
@@ -140,7 +140,7 @@ YC=YC(2:n+1,2:m+1)';
 figure
 if DisplayGrid
     hold on;
-    ShowGrid(0);
+    ShowGrid(1,1,1,0);
 end
 
 [C1,h1] = contourf(XC,YC,T,20);
@@ -152,7 +152,7 @@ ylabel('y')
 axis fill
 if DisplayGrid
     hold on
-    ShowGrid(0);
+    ShowGrid(1,1,1,0);
     hold off
 end
 

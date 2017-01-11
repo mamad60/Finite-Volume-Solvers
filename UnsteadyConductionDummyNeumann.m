@@ -21,7 +21,7 @@ global F0;
 % F0=.1;              %fourier no.
 err=zeros(1,MaxIT);
 err(1)=1000;    %Error in two con. time step
-DisplayGrid=0;   %Show Grid in Contour Plot
+DisplayGrid=1;   %Show Grid in Contour Plot
 %---------------------------------------------
 
 %Definition of varibles-------------------------
@@ -53,7 +53,7 @@ pause
 GridDummy(L,H);
 %Display Grid
 figure;
-ShowGrid(1);
+ShowGrid(1,1,1,0);
 xlabel('x');
 ylabel('y');
 title('Grid with Dummy cells(Grey)');
@@ -135,7 +135,7 @@ YC=YC(2:n+1,2:m+1)';
 figure
 if DisplayGrid
     hold on;
-    ShowGrid(0);
+    ShowGrid(0,1,1,0);
 end
 
 [C1,h1] = contourf(XC,YC,T,20);
@@ -147,7 +147,7 @@ ylabel('y')
 axis fill
 if DisplayGrid
     hold on
-    ShowGrid(0);
+    ShowGrid(0,1,1,0);
     hold off
 end
 
@@ -169,7 +169,7 @@ plot(T(n,:),XC(n,:),'-.. g')
 legend('x=0','x=n/5','x=n/4','x=n/3','x=n/2','x=2*n/3','x=3*n/4','x=n',1)
 title('Profiles of the Temperature across the Domain')
 xlabel('Temperature');
-ylabel('x Coordinate');
+ylabel('y Coordinate');
 axis fill
 hold off;
 fprintf(1,'Final Time is %2.6f\n',Dt*IT);
