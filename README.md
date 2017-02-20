@@ -1,2 +1,4 @@
 # Finite-Volume-Solvers
-A Collection of Finite Volume solvers written by me, for Heat and Fluid Flow problems
+A Collection of Finite Volume solvers for Heat and Fluid Flow problems
+Codes in this repository are 2D Steady and Unsteady Conductions and Navier-Stokes Solver
+Finite Volume Method on Non-Orthogonal grid is considerd
