@@ -1,0 +1,17 @@
+BETA  ,RADI   ,ACOM
+1.35D0,20D0   ,1D0
+EU    ,EV,    ,EP
+0D0   ,0D0    ,0D0
+U0    ,V0     ,P0   
+1D0   ,0D0    ,0D0
+M     ,N      ,R(1)
+60    ,60     ,5D-1
+CFL   ,ERR    
+1D0   ,1D-4   
+REN   ,ITR
+20D0 ,700D0 
+         
+         
+         
+         
+         
